@@ -26,6 +26,8 @@ def print_lcs(X, Y):
         else:
             j -= 1
 
+# if u want supersequence u should also complete itertaion of i and j until 0.
+
     lcs_string = ''.join(reversed(lcs_chars))
 
     # Output
