@@ -1,3 +1,6 @@
+# RECURSION -> 
+# TC : 0(2^n), SC: 0(n)
+
 # MEMOIZATION 
 
 def lis_memo(arr):
@@ -15,6 +18,8 @@ def lis_memo(arr):
 
     return dfs(0, -1)
 
+# TC : O(n^2), SC: O(n^2) + O(n)
+
 
 # TABULATION 
 
@@ -28,5 +33,27 @@ def lis_tab(arr):
                 dp[i] = max(dp[i], dp[j] + 1)
     return max(dp)
 
+# TC : O(n^2), SC: O(n)
 
 
+
+#BINARY SEARCH
+
+
+
+
+import bisect
+
+def lengthOfLIS(nums):
+    dp = []  # dp[i] = min tail of all increasing subsequences of length i+1
+    for num in nums:
+        # Find the position to replace using binary search
+        idx = bisect.bisect_left(dp, num)
+        if idx < len(dp):
+            dp[idx] = num
+        else:
+            dp.append(num)
+    return len(dp)
+
+
+# TC : O(n log n), SC: O(n)
